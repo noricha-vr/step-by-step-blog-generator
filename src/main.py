@@ -4,7 +4,8 @@ from pprint import pprint
 from blog_generator import BlogGenerator
 if __name__ == "__main__":
     api_key = os.getenv("OPENAI_API_KEY")
-    print(api_key)
+    if api_key is None:
+        raise ValueError("OPENAI_API_KEY is not set")
     generator = BlogGenerator(api_key)
     theme = input("ブログのテーマを入力してください: ")
     result = generator.create_blog(theme)
