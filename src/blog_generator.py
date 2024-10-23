@@ -1,7 +1,5 @@
-import os
 import openai
 from typing import List, Dict
-import json
 
 
 class BlogGenerator:
@@ -125,13 +123,3 @@ class BlogGenerator:
                 break
 
         return self.blog_data
-
-
-if __name__ == "__main__":
-    api_key = os.getenv("OPENAI_API_KEY")
-    print(api_key)
-    generator = BlogGenerator(api_key)
-    theme = input("ブログのテーマを入力してください: ")
-    result = generator.create_blog(theme)
-    print("\n最終結果:")
-    print(json.dumps(result, ensure_ascii=False, indent=2))
